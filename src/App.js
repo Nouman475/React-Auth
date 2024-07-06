@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.scss";
+import "bootstrap/dist/js/bootstrap.bundle";
+import Login from "./pages/Auth/Login";
+import Register from "./pages/Auth/Register";
+import Forgot from "./pages/Auth/Forgot";
 
 function App() {
+  const [registerSuccess, setRegisterSuccess] = useState(false);
+  const [showForgotPassword, setShowForgotPassword] = useState(false);
+
+  const handleForgotPasswordClick = () => {
+    setShowForgotPassword(true);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {registerSuccess ? (
+        showForgotPassword ? (
+          <Forgot />
+        ) : (
+          <Login
+            setRegisterSuccess={setRegisterSuccess}
+            onForgotPasswordClick={handleForgotPasswordClick}
+          />
+        )
+      ) : (
+        <Register onRegisterSuccess={() => setRegisterSuccess(true)} />
+      )}
+    </>
   );
 }
 

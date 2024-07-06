@@ -1,0 +1,16 @@
+@import "./scss/bootstrap";
+@import "./scss/_login.scss";
+
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: url(https://t3.ftcdn.net/jpg/05/34/79/12/360_F_534791263_4PBZpeEf28LmxxL3nJ0zzZVSFED0pirH.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+main {
+    flex: 1 0 auto;
+}
